@@ -12,6 +12,7 @@ import DashboardAppPage from './pages/DashboardAppPage';
 import StudentsPage from './pages/StudentsPage';
 import AddUserPage from './pages/AddUserPage';
 import AddStudentPage from './pages/AddStudentPage';
+import StateMapPage from './pages/StateMapPage';
 
 // ----------------------------------------------------------------------
 
@@ -21,7 +22,8 @@ export default function Router() {
       path: '/dashboard',
       element: <DashboardLayout />,
       children: [
-        { element: <Navigate to="/dashboard/app" />, index: true },
+        { element: <Navigate to="/dashboard/map" />, index: true },
+        { path: 'map', element: <StateMapPage /> },
         { path: 'app', element: <DashboardAppPage /> },
         { path: 'user', element: <UserPage /> },
         { path: 'user/add', element: <AddUserPage /> },
@@ -36,7 +38,7 @@ export default function Router() {
     {
       element: <SimpleLayout />,
       children: [
-        { element: <Navigate to="/dashboard/app" />, index: true },
+        { element: <Navigate to="/dashboard/map" />, index: true },
         { path: '404', element: <Page404 /> },
         { path: '*', element: <Navigate to="/404" /> },
       ],
